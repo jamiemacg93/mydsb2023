@@ -442,6 +442,21 @@ age_diff_over_years <- age_gaps %>%
   geom_line(aes(y = median_age_diff, color = "Median Age Difference")) +
   labs(title = "Mean and Median Age Difference over Years", x = "Release Year", y = "Age Difference", color = "Mean/Median") +
   scale_color_manual(values = c("Mean Age Difference" = "navy", "Median Age Difference")
+  
+  # Hollywood depict same-gender love interests
+age_gaps <- age_gaps %>%
+  mutate(same_gender = character_1_gender == character_2_gender)
+  
+same_gender_love_interests <- age_gaps %>%  
+  group_by(same_gender) %>%
+  summarise(count = n(),
+            percentage = n() / nrow(age_gaps) * 100)
+print(same_gender_love_interests)
+# Same gender love interests occur 2% of the time
+
+percentage_table <- age_gaps %>%
+  group_by(release_year) %>%
+  summarize(percentage = mean(same_gender == "TRUE") * 100)
 
 # Percentage of movies with same-gender love interests by year
 percentage_table <- age_gaps %>%
@@ -471,7 +486,7 @@ plot(same_gender_love_interests_plot)
 
 # Details
 
--   Who did you collaborate with: Vast majority I did pretty much completely alone (maybe a mistake)
+-   Who did you collaborate with: Vast majority I did pretty much completely alone (maybe a mistake), also a bit with Brent Lewis
 -   Approximately how much time did you spend on this problem set: probably about 7-8 hours
 -   What, if anything, gave you the most trouble: Mainly trying to get connected to github (I don't really understand it still but will before next class)
 
