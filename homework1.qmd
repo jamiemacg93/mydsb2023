@@ -390,7 +390,7 @@ To enhance the plot, use geom_text() to add labels to the bars, providing additi
 ![](images/sfo-cancellations.png)
 
 ## Problem 10: On your own -- Hollywood Age Gap
-# Import the dataset and add a column for half_plus_seven_rule
+
 age_gaps <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-02-14/age_gaps.csv', show_col_types = FALSE) %>%
   mutate(half_plus_seven = actor_2_age > ((actor_1_age / 2) + 7) & actor_2_age < ((actor_1_age - 7) * 2))
 
@@ -456,6 +456,18 @@ same_gender_love_interests_plot <- ggplot(percentage_table, aes(x = release_year
   ggtitle("Percentage of Movies with Same Gender Love Interests by Year") +
   scale_x_continuous(breaks = scale_x_yr, labels = substring(scale_x_yr, nchar(scale_x_yr) - 1)) +
   theme_minimal()
+
+# Print results
+print(summary_stats)
+print(age_diff_plot)
+print(half_plus_seven_freq)
+print(paste(movie_count_love_interests$movie_name[1], "is the movie with the most love interests"))
+print(combined_actor_occurances[1])
+print(age_diff_over_years)
+print(same_gender_love_interests)
+plot(same_gender_love_interests_plot)
+
+
 
 # Details
 
