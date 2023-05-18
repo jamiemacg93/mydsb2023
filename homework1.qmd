@@ -17,7 +17,10 @@ editor: visual
 #| message: false
 #| warning: false
 
-
+library(tidyverse)
+library(nycflights13)
+library(skimr)
+options(dplyr.summarise.inform = FALSE)
 
 ```
 
