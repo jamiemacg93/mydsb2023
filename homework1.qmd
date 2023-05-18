@@ -441,7 +441,7 @@ age_diff_over_years <- age_gaps %>%
   geom_line(aes(y = mean_age_diff, color = "Mean Age Difference")) +
   geom_line(aes(y = median_age_diff, color = "Median Age Difference")) +
   labs(title = "Mean and Median Age Difference over Years", x = "Release Year", y = "Age Difference", color = "Mean/Median") +
-  scale_color_manual(values = c("Mean Age Difference" = "navy", "Median Age Difference"
+  scale_color_manual(values = c("Mean Age Difference" = "navy", "Median Age Difference")
 
 # Percentage of movies with same-gender love interests by year
 percentage_table <- age_gaps %>%
